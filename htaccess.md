@@ -130,12 +130,9 @@ Essentials ^
 Commenting your .htaccess Files ^
 It is an excellent idea to consistenly and logically comment your .htaccess files. Any line in an .htaccess file that begins with the pound sign ( # ) tells the server to ignore it. Multiple lines require multiple pounds and use letters/numbers/dash/underscore only:
 
-# this is a comment
-# each line must have its own pound sign
-# use only alphanumeric characters along with dashes - and underscores _
-For more information, check out commenting your .htaccess code.
 
-Enable Basic Rewriting ^
+
+# Enable Basic Rewriting 
 Certain servers may not have mod_rewrite (basic rewriting) enabled by default. To ensure mod_rewrite is enabled throughout your site, add the following line once to your site’s root .htaccess file (located before any rewrite rules):
 
 # enable mod_rewrite
