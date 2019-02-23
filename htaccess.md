@@ -149,9 +149,10 @@ For directives that require AllowOverride in order to function, such as FollowSy
 So to enable AllowOverride for this directory:
 
 # enable allowoverride privileges
-`<Directory /www/replace/this/with/actual/directory>
-	AllowOverride Options
-</Directory>
+`
+	<Directory /www/replace/this/with/actual/directory>
+		AllowOverride Options
+	</Directory>
 `
 Refer to this section for more information about AllowOverride and performance enhancement.
 
