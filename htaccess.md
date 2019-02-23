@@ -133,15 +133,15 @@ It is an excellent idea to consistenly and logically comment your .htaccess file
 
 
 # Enable Basic Rewriting 
-Certain servers may not have mod_rewrite (basic rewriting) enabled by default. To ensure mod_rewrite is enabled throughout your site, add the following line once to your site’s root .htaccess file (located before any rewrite rules):
+Certain servers may not have **mod_rewrite** (basic rewriting) enabled by default. To ensure **mod_rewrite** is enabled throughout your site, add the following line once to your site’s root .htaccess file (located before any rewrite rules):
 
 # enable mod_rewrite
-RewriteEngine on
+`RewriteEngine on`
 Enable Symbolic Links ^
 Enable symbolic links (symlinks) by adding the following directive to the target directory’s .htaccess file. Note: for the FollowSymLinks directive to function, AllowOverride Options privileges must be enabled from within the server configuration file (see next section for more information):
 
 # enable symbolic links
-Options +FollowSymLinks
+`Options +FollowSymLinks`
 Enable AllowOverride ^
 For directives that require AllowOverride in order to function, such as FollowSymLinks (see previous section), the following directive must be added to the server configuration file. For performance considerations, it is important to only enable AllowOverride in the specific directory or directories in which it is required. In the following code chunk, we are enabling the AllowOverride privileges only in the specified directory:
 `/www/replace/this/with/actual/directory`
@@ -149,11 +149,12 @@ For directives that require AllowOverride in order to function, such as FollowSy
 So to enable AllowOverride for this directory:
 
 # enable allowoverride privileges
-`
-	<Directory /www/replace/this/with/actual/directory>
+
+```
+<Directory /www/replace/this/with/actual/directory>
 		AllowOverride Options
-	</Directory>
-`
+	</Directory>`
+```
 Refer to this section for more information about AllowOverride and performance enhancement.
 
 Rename the .htaccess File ^
@@ -164,17 +165,21 @@ AccessFileName ht.access
 Note: If you rename your .htaccess files, remember to update any associated configuration settings. For example, if you are protecting your .htaccess file via FilesMatch, remember to inform it of the renamed files:
 
 # protect renamed .htaccess files
-`<FilesMatch "^ht\.">
+```
+<FilesMatch "^ht\.">
 	Order deny,allow
 	Deny from all
-</FilesMatch>`
+</FilesMatch>
+```
 Check out the Security section for more information about protecting files.
 
 Retain Rules Defined in httpd.conf ^
 Save yourself time and effort by defining replicate rules for multiple virtual hosts once and only once via your httpd.conf file. Then, simply instruct your target .htaccess file(s) to inherit the httpd.conf rules by including this directive:
 
 # inherit rules from httpd.conf
-RewriteOptions Inherit
+```
+RewriteOptions Inherit 
+```
 Performance ^
 Improving Performance via AllowOverride ^
 Limit the extent to which .htaccess files decrease performance by enabling AllowOverride only in required directories. For example, if AllowOverride is enabled throughout the entire site, the server must dig through every directory, searching for .htaccess files that may not even exist. To prevent this, we disable the AllowOverride in the site’s root .htaccess file and then enable AllowOverride only in required directories via the server config file (refer to this section for more information).
@@ -193,51 +198,69 @@ Improving Performance by Preserving Bandwidth ^
 To increase performance on PHP enabled servers, add the following directive:
 
 # preserve bandwidth for PHP enabled servers
-`<ifmodule mod_php4.c>
+```
+<ifmodule mod_php4.c>
 	php_value zlib.output_compression 16386
-</ifmodule>`
+</ifmodule>
+```
 Disable the Server Signature ^
 Here we are disabling the digital signature that would otherwise identify the server:
 
 # disable the server signature
-`ServerSignature Off`
+```
+ServerSignature Off
+```
 Set the Server Timezone ^
 Here we are instructing the server to synchronize chronologically according to the time zone of the specified state:
 
 # set the server timezone
-`SetEnv TZ America/Washington`
+```
+SetEnv TZ America/Washington
+```
 Check out the official list of supported timezones.
 
 Set the Email Address for the Server Administrator ^
 Here we are specifying the default email address for the server administrator:
 
 # set the server administrator email
-`SetEnv SERVER_ADMIN default@example.com`
+```
+SetEnv SERVER_ADMIN default@example.com
+```
 Note: only specify your email address if you are okay with getting lots of spam ;)
 
 Improve Site Transfer Speed by Enabling File Caching ^
 Caleb over at askapache.com explains how to dramatically improve your site’s transfer speed by enabling file caching. Using time in seconds (see conversion chart) to indicate the duration for which cached content should endure, we may generalize the necessary .htaccess rules as follows (edit file types and time value to suit your needs):
 
 # cache images and flash content for one month
-`<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+```
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
 	Header set Cache-Control "max-age=2592000"
-</FilesMatch>`
+</FilesMatch>
+```
 # cache text, css, and javascript files for one week
-`<FilesMatch ".(js|css|pdf|txt)$">
+```
+<FilesMatch ".(js|css|pdf|txt)$">
 	Header set Cache-Control "max-age=604800"
-</FilesMatch>`
+</FilesMatch>
+```
 # cache html and htm files for one day
-`<FilesMatch ".(html|htm)$">
+```
+<FilesMatch ".(html|htm)$">
 	Header set Cache-Control "max-age=43200"
-</FilesMatch>`
+</FilesMatch>
+```
 # implement minimal caching during site development
-`<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|js|css|pdf|swf|html|htm|txt)$">
+```
+<FilesMatch "\.(flv|gif|jpg|jpeg|png|ico|js|css|pdf|swf|html|htm|txt)$">
 	Header set Cache-Control "max-age=5"
-</FilesMatch>`
+</FilesMatch>
+```
 # explicitly disable caching for scripts and other dynamic files
-`<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
+```
+<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
 	Header unset Cache-Control
-</FilesMatch>`
+</FilesMatch>
+```
 # alternate method for file caching
 `ExpiresActive On
 ExpiresDefault A604800
