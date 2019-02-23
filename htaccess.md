@@ -1,4 +1,4 @@
-# Amazing .htaccess Tips and Tricks
+# Amazing .htaccess Tips and Tricks😍😍😍
 .htaccess Definition ^
 Apache server software provides distributed (i.e., directory-level) configuration via Hypertext Access files. These .htaccess files enable the localized fine-tuning of Apache’s universal system-configuration directives, which are defined in Apache’s main configuration file. The localized .htaccess directives must operate from within a file named .htaccess. The user must have appropriate file permissions to access and/or edit the .htaccess file.
 
