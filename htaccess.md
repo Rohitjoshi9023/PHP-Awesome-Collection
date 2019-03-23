@@ -1,28 +1,28 @@
 # Amazing .htaccess Tips and Tricks😍😍😍
 .htaccess Definition ^
-Apache server software provides distributed (i.e., directory-level) configuration via Hypertext Access files. These .htaccess files enable the localized fine-tuning of Apache’s universal system-configuration directives, which are defined in Apache’s main configuration file. The localized .htaccess directives must operate from within a file named .htaccess. The user must have appropriate file permissions to access and/or edit the .htaccess file.
+Apache server software provides distributed (i.e., directory-level) configuration via Hypertext Access files. These .htaccess files enable the localized fine-tuning of Apache’s universal system-configuration directives, which are defined in Apache’s main configuration file. The localized .htaccess directives must operate from within a file named .htaccess. The user must have appropriate file permissions to access and/or edit the .htaccess file.<br/><br/>
 
-Further, .htaccess file permissions should never allow world write access — a secure permissions setting is “644”, which allows universal read access and user-only write access. Finally, .htaccess rules apply to the parent directory and all subdirectories. Thus to apply configuration rules to an entire website, place the .htaccess file in the site’s root directory.
+Further, .htaccess file permissions should never allow world write access — a secure permissions setting is “644”, which allows universal read access and user-only write access. Finally, .htaccess rules apply to the parent directory and all subdirectories. Thus to apply configuration rules to an entire website, place the .htaccess file in the site’s root directory.<br/><br/>
 
 Commenting .htaccess Code ^
-Comments are essential to maintaining control over any involved portion of code. Comments in .htaccess code are fashioned on a per-line basis, with each line of comments beginning with a pound sign #. Thus, comments spanning multiple lines in the .htaccess file require multiple pound signs.
+Comments are essential to maintaining control over any involved portion of code. Comments in .htaccess code are fashioned on a per-line basis, with each line of comments beginning with a pound sign #. Thus, comments spanning multiple lines in the .htaccess file require multiple pound signs.<br/><br/>
 
-Further, due to the extremely volatile nature of .htaccess voodoo, it is wise to include only alphanumeric characters (and perhaps a few dashes and underscores) in any .htaccess comments. For more information, check out my tutorial commenting your .htaccess code.
+Further, due to the extremely volatile nature of .htaccess voodoo, it is wise to include only alphanumeric characters (and perhaps a few dashes and underscores) in any .htaccess comments. For more information, check out my tutorial commenting your .htaccess code.<br/><br/>
 
 # Important Notes for .htaccess Noobs ^
-As a configuration file, .htaccess is very powerful. Even the slightest syntax error (like a missing space) can result in severe server malfunction. Thus it is crucial to make backup copies of everything related to your site (including any original .htaccess files) before working with your Hypertext Access file(s). It is also important to check your entire website thoroughly after making any changes to your .htaccess file. If any errors or other problems are encountered, employ your backups immediately to restore original functionality.
+As a configuration file, .htaccess is very powerful. Even the slightest syntax error (like a missing space) can result in severe server malfunction. Thus it is crucial to make backup copies of everything related to your site (including any original .htaccess files) before working with your Hypertext Access file(s). It is also important to check your entire website thoroughly after making any changes to your .htaccess file. If any errors or other problems are encountered, employ your backups immediately to restore original functionality.<br/><br/>
 
-Also note that, on most machines, .htaccess files are hidden by default. For more information, check out my tutorial, Create .htaccess files on OS X and Windows.
+Also note that, on most machines, .htaccess files are hidden by default. For more information, check out my tutorial, Create .htaccess files on OS X and Windows.<br/><br/>
 
 Performance Issues ^
-.htaccess directives provide directory-level configuration without requiring access to Apache’s main server cofiguration file (httpd.conf). However, due to performance and security concerns, the main configuration file should always be used for server directives whenever possible.
+.htaccess directives provide directory-level configuration without requiring access to Apache’s main server cofiguration file (httpd.conf). However, due to performance and security concerns, the main configuration file should always be used for server directives whenever possible.<br/><br/>
 
-For example, when a server is configured to process .htaccess directives, Apache must search every directory within the domain and load any and all .htaccess files upon every document request. This results in increased page processing time and thus decreases performance. Such a performance hit may be unnoticeable for sites with light traffic, but becomes a more serious issue for more popular websites.
+For example, when a server is configured to process .htaccess directives, Apache must search every directory within the domain and load any and all .htaccess files upon every document request. This results in increased page processing time and thus decreases performance. Such a performance hit may be unnoticeable for sites with light traffic, but becomes a more serious issue for more popular websites.<br/><br/>
 
-Therefore, .htaccess files should only be used when the main server configuration file is inaccessible. See the Performance Tricks section of this article for more information.
+Therefore, .htaccess files should only be used when the main server configuration file is inaccessible. See the Performance Tricks section of this article for more information.<br/><br/>
 
 Regex Character Definitions for .htaccess ^
-Get this information in PDF format! Visit .htaccess Character Definitions for free download.
+Get this information in PDF format! Visit .htaccess Character Definitions for free download.<br/><br/>
 
 #
 The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.<br/>
@@ -34,31 +34,20 @@ The # instructs the server to ignore the line. used for including comments. each
 **[C]Chain:** instructs server to chain the current rule with the previous rule.
 **[R]Redirect:** instructs Apache to issue a redirect, causing the client to request the new content.
 **[NC]No Case:** defines any associated argument as case-insensitive. That is, “NC” = “No Case”.
-[PT]
-Pass Through: instructs mod_rewrite to pass the rewritten URL back to Apache for further processing.
-[OR]
-Or: specifies a logical “or” that ties two expressions together such that either one proving true will cause the associated rule to be applied.
-[NE]
-No Escape: instructs the server to parse output without escaping characters.
-[NS]
-No Subrequest: instructs the server to skip the directive if internal sub-request.
-[QSA]
-Append Query String: directs server to add the query string to the end of the expression (URL).
-[S=x]
-Skip: instructs the server to skip the next “x” number of rules if a match is detected.
-[E=variable:value]
-Environmental Variable: instructs the server to set the environmental variable “variable” to “value”.
-[T=MIME-type]
-Mime Type: declares the mime type of the target resource.
-[]
-Specifies a character class, in which any character within the brackets will be a match. For example, [xyz] will match either an “x”, “y”, or “z”.
-[]+
-Character class in which any combination of items within the brackets will be a match. For example, [xyz]+ will match any number of “x”, “y”, “z”, or any combination of these characters.
-[^]
-Specifies not within a character class. For example, [^xyz] will match any character that is neither “x”, “y”, nor “z”.
-[a-z]
-A dash (-) between two characters within a character class ([]) denotes the range of characters between them. For example, [a-zA-Z] matches all lowercase and uppercase letters from “a” thru “z”.
-a{n}
+**[PT]Pass Through:** instructs mod_rewrite to pass the rewritten URL back to Apache for further processing.<br/>
+**[OR]Or:** specifies a logical “or” that ties two expressions together such that either one proving true will cause the associated rule to be applied.
+**[NE]No Escape:** instructs the server to parse output without escaping characters.
+**[NS]No Subrequest:** instructs the server to skip the directive if internal sub-request.
+**[QSA]Append Query String:** directs server to add the query string to the end of the expression (URL).
+**[S=x]Skip:** instructs the server to skip the next “x” number of rules if a match is detected.
+**[E=variable:value]Environmental Variable:** instructs the server to set the environmental variable “variable” to “value”.
+**[T=MIME-type]Mime Type:** declares the mime type of the target resource.
+**[]** Specifies a character class, in which any character within the brackets will be a match. For example, [xyz] will match either an “x”, “y”, or “z”.
+**[]+** Character class in which any combination of items within the brackets will be a match. For example, [xyz]+ will match any number of “x”, “y”, “z”, or any combination of these characters.
+**[^]** Specifies not within a character class. For example, [^xyz] will match any character that is neither “x”, “y”, nor “z”.
+**[a-z]** A dash (-) between two characters within a character class ([]) denotes the range of characters between them. For example, [a-zA-Z] matches all lowercase and uppercase letters from “a” thru “z”.
+
+**a{n}**
 Specifies an exact number, n, of the preceding character. For example, x{3} matches “x” exactly three times.
 a{n,}
 Specifies n or more of the preceding character. For example, x{3,} matches “x” three or more times.
