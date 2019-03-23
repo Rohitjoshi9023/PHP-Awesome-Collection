@@ -25,9 +25,9 @@ Regex Character Definitions for .htaccess ^
 Get this information in PDF format! Visit .htaccess Character Definitions for free download.
 
 #
-The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.
-**[F]Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.
-**[L]Last rule:** instructs the server to stop rewriting after the preceding directive is processed.
+The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.<br/>
+**[F]Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.<br/>
+**[L]Last rule:** instructs the server to stop rewriting after the preceding directive is processed.<br/>
 **[N]Next:** instructs Apache to rerun the rewrite rule until all rewriting directives have been achieved.
 **[G]Gone:** instructs the server to deliver a 410 “Gone” response (indicating that the resource no longer exists.
 **[P]Proxy:** instructs server to handle requests by mod_proxy.
