@@ -21,10 +21,7 @@ For example, when a server is configured to process .htaccess directives, Apache
 
 Therefore, .htaccess files should only be used when the main server configuration file is inaccessible. See the Performance Tricks section of this article for more information.<br/><br/>
 
-Regex Character Definitions for .htaccess ^
-Get this information in PDF format! Visit .htaccess Character Definitions for free download.<br/><br/>
-
-#
+# Regex Character Definitions for .htaccess ^
 The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.<br/>
 **[F]Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.<br/>
 **[L]Last rule:** instructs the server to stop rewriting after the preceding directive is processed.<br/>
@@ -47,87 +44,61 @@ The # instructs the server to ignore the line. used for including comments. each
 **[^]** Specifies not within a character class. For example, [^xyz] will match any character that is neither “x”, “y”, nor “z”.<br/>
 **[a-z]** A dash (-) between two characters within a character class ([]) denotes the range of characters between them. For example, [a-zA-Z] matches all lowercase and uppercase letters from “a” thru “z”.<br/>
 
-**a{n}**Specifies an exact number, n, of the preceding character. For example, x{3} matches “x” exactly three times.<br/>
-a{n,}
-Specifies n or more of the preceding character. For example, x{3,} matches “x” three or more times.
-a{n,m}
-Specifies a range of numbers, between n and m, of the preceding character. For example, x{3,7} matches “x” three, four, five, six, or seven times.
-()
-Used to group characters together, thereby considering them as a single unit. For example, (perishable)?press will match “press”, with or without the “perishable” prefix.
-^
-Denotes the beginning of a regex (regex = regular expression) test string. That is, begin argument with the proceeding character.
-$
-Denotes the end of a regex (regex = regular expression) test string. That is, end argument with the previous character.
-?
-Declares as optional the preceding character. For example, monzas? will match “monza” or “monzas”, while mon(za)? will match either “mon” or “monza”. That is, x? matches “x” zero or one times.
-!
-Declares negation. For example, !string matches everything except string.
-.
-A dot (or period) indicates any single arbitrary character.
-–
-Instructs “not to” rewrite the URL, as in (.*) - [F].
-+
-Matches one or more of the preceding character. For example, G+ matches “G” one or more times.
-*
-Matches zero or more of the preceding character. For example, you can use .* as a wildcard to match anything (or nothing).
-|
-Declares a logical “or” operator. For example, (x|y) matches “x” or “y”.
-\
-Escapes special characters ( ^ $ ! . * | ). For example, use \. to indicate/escape a literal dot.
-\.
-Indicates a literal dot (escaped).
-/*
-Zero or more slashes.
-.*
-Zero or more arbitrary characters.
-^$
-Defines an empty string.
-.*
-The standard pattern for matching everything (or nothing).
-[^/.]
-Defines one character that is neither a slash nor a dot.
-[^/.]+
-Defines any number of characters which contains neither slash nor dot.
-http://
-This is a literal statement — in this case, the literal character string, http://.
-^domain.*
-Defines a string that begins with the term “domain”, which then may be proceeded by any number of any characters.
-^domain\.com$
-Defines the exact string, “domain.com”.
--d
-Tests if string is an existing directory.
--f
-Tests if string is an existing file.
--s
-Tests if file in test string has a non-zero value.
-Redirection Header Codes ^
-301 – Moved Permanently
-302 – Moved Temporarily
-403 – Forbidden
-404 – Not Found
-410 – Gone
-Essentials ^
-Commenting your .htaccess Files ^
-It is an excellent idea to consistenly and logically comment your .htaccess files. Any line in an .htaccess file that begins with the pound sign ( # ) tells the server to ignore it. Multiple lines require multiple pounds and use letters/numbers/dash/underscore only:
+**a{n}** Specifies an exact number, n, of the preceding character. For example, x{3} matches “x” exactly three times.<br/>
+**a{n,}** Specifies n or more of the preceding character. For example, x{3,} matches “x” three or more times.<br/>
+**a{n,m}** Specifies a range of numbers, between n and m, of the preceding character. For example, x{3,7} matches “x” three, four, five, six, or seven times.<br/>
+**()** Used to group characters together, thereby considering them as a single unit. For example, (perishable)?press will match “press”, with or without the “perishable” prefix.<br/>
+**^** Denotes the beginning of a regex (regex = regular expression) test string. That is, begin argument with the proceeding character.<br/>
+**$** Denotes the end of a regex (regex = regular expression) test string. That is, end argument with the previous character.<br/>
+**?** Declares as optional the preceding character. For example, monzas? will match “monza” or “monzas”, while mon(za)? will match either “mon” or “monza”. That is, x? matches “x” zero or one times.<br/>
+**!** Declares negation. For example, !string matches everything except string.<br/>
+**.** A dot (or period) indicates any single arbitrary character.<br/>
+**–** Instructs “not to” rewrite the URL, as in (.*) - [F].<br/>
+**+** Matches one or more of the preceding character. For example, G+ matches “G” one or more times.<br/>
+***** Matches zero or more of the preceding character. For example, you can use .* as a wildcard to match anything (or nothing).<br/>
+**|** Declares a logical “or” operator. For example, (x|y) matches “x” or “y”.<br/>
+**\/** Escapes special characters ( ^ $ ! . * | ). For example, use \. to indicate/escape a literal dot.<br/>
+**\.** Indicates a literal dot (escaped).<br/>
+**/*** Zero or more slashes.<br/>
+**.*** Zero or more arbitrary characters.<br/>
+**^$** Defines an empty string.<br/>
+**.*** The standard pattern for matching everything (or nothing).<br/>
+**[^/.]** Defines one character that is neither a slash nor a dot.<br/>
+**[^/.]+** Defines any number of characters which contains neither slash nor dot.<br/>
+**http://** This is a literal statement — in this case, the literal character string, http://.<br/>
+**^domain.*** Defines a string that begins with the term “domain”, which then may be proceeded by any number of any characters.<br/>
+**^domain\.com$** Defines the exact string, “domain.com”.<br/>
+**-d** Tests if string is an existing directory.<br/>
+**-f** Tests if string is an existing file.<br/>
+**-s** Tests if file in test string has a non-zero value.<br/><br/>
+
+# Redirection Header Codes 
+301 – Moved Permanently<br/>
+302 – Moved Temporarily<br/>
+403 – Forbidden<br/>
+404 – Not Found<br/>
+410 – Gone<br/><br/>
+
+
+# Commenting your .htaccess Files ^
+It is an excellent idea to consistenly and logically comment your .htaccess files. Any line in an .htaccess file that begins with the pound sign ( # ) tells the server to ignore it. Multiple lines require multiple pounds and use letters/numbers/dash/underscore only:<br/><br/>
 
 
 
 # Enable Basic Rewriting 
-Certain servers may not have **mod_rewrite** (basic rewriting) enabled by default. To ensure **mod_rewrite** is enabled throughout your site, add the following line once to your site’s root .htaccess file (located before any rewrite rules):
+Certain servers may not have **mod_rewrite** (basic rewriting) enabled by default. To ensure **mod_rewrite** is enabled throughout your site, add the following line once to your site’s root .htaccess file (located before any rewrite rules):<br/><br/>
 
 # enable mod_rewrite
 `RewriteEngine on`
 Enable Symbolic Links ^
-Enable symbolic links (symlinks) by adding the following directive to the target directory’s .htaccess file. Note: for the FollowSymLinks directive to function, AllowOverride Options privileges must be enabled from within the server configuration file (see next section for more information):
+Enable symbolic links (symlinks) by adding the following directive to the target directory’s .htaccess file. Note: for the FollowSymLinks directive to function, AllowOverride Options privileges must be enabled from within the server configuration file (see next section for more information):<br/><br/>
 
 # enable symbolic links
 `Options +FollowSymLinks`
 Enable AllowOverride ^
 For directives that require AllowOverride in order to function, such as FollowSymLinks (see previous section), the following directive must be added to the server configuration file. For performance considerations, it is important to only enable AllowOverride in the specific directory or directories in which it is required. In the following code chunk, we are enabling the AllowOverride privileges only in the specified directory:
 `/www/replace/this/with/actual/directory`
-
-So to enable AllowOverride for this directory:
-
+<br/><br/>
 # enable allowoverride privileges
 
 ```
@@ -136,13 +107,12 @@ So to enable AllowOverride for this directory:
 	</Directory>`
 ```
 Refer to this section for more information about AllowOverride and performance enhancement.
-
+<br/><br/>
 Rename the .htaccess File ^
-Not every system enjoys the extension-only format of .htaccess files. Fortunately, you can rename them to whatever you wish, granted the name is valid on your system. Note: This directive must be placed in the server-wide configuration file or it will not work:
-
+Not every system enjoys the extension-only format of .htaccess files. Fortunately, you can rename them to whatever you wish, granted the name is valid on your system. Note: This directive must be placed in the server-wide configuration file or it will not work:<br/><br/>
 # rename .htaccess files
 AccessFileName ht.access
-Note: If you rename your .htaccess files, remember to update any associated configuration settings. For example, if you are protecting your .htaccess file via FilesMatch, remember to inform it of the renamed files:
+Note: If you rename your .htaccess files, remember to update any associated configuration settings. For example, if you are protecting your .htaccess file via FilesMatch, remember to inform it of the renamed files:<br/><br/>
 
 # protect renamed .htaccess files
 ```
@@ -251,24 +221,24 @@ ExpiresByType text/html A300`
 # disable caching for scripts and other dynamic files
 `<FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$">
 	ExpiresActive Off
-</FilesMatch>`
-For more information, check out Additional file-types for mod_expires.
+</FilesMatch>`<br/>
+For more information, check out Additional file-types for mod_expires.<br/>
 
-TIME CONVERSION CHART
-Convert common time intervals into seconds:
+TIME CONVERSION CHART<br/>
+Convert common time intervals into seconds:<br/><br/>
 
-> 300      = 5 minutes
-> 2700     = 45 minutes
-> 3600     = 1 hour
-> 54000    = 15 hours
-> 86400    = 1 day
-> 518400   = 6 days
-> 604800   = 1 week
-> 1814400  = 3 weeks
-> 2419200  = 1 month
-> 26611200 = 11 months
-> 29030400 = 1 year
-Set the default language and character set ^
+> 300      = 5 minutes<br/>
+> 2700     = 45 minutes<br/>
+> 3600     = 1 hour<br/>
+> 54000    = 15 hours<br/>
+> 86400    = 1 day<br/>
+> 518400   = 6 days<br/>
+> 604800   = 1 week<br/>
+> 1814400  = 3 weeks<br/>
+> 2419200  = 1 month<br/>
+> 26611200 = 11 months<br/>
+> 29030400 = 1 year<br/>
+Set the default language and character set ^<br/>
 Here is an easy way to set the default language for pages served by your server (edit the language to suit your needs):
 
 # set the default language
@@ -277,8 +247,10 @@ Likewise, here we are setting the default character set (edit to taste):
 
 # set the default character set
 `AddDefaultCharset UTF-8`
-Declare specific/additional MIME types ^
-# add various mime types
+
+
+# Declare specific/additional MIME types ^
+ **add various mime types**
 `AddType application/x-shockwave-flash .swf
 AddType video/x-flv .flv
 AddType image/x-icon .ico`
@@ -294,19 +266,19 @@ RewriteEngine on
 RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|HEAD) RewriteRule .* - [F]`
 Learn more about Controlling Request Methods.
 
-Process files based on request method ^
-# process files according to server request method
+# Process files based on request method 
+**process files according to server request method**
 `Script PUT /cgi-bin/upload.cgi
 Script GET /cgi-bin/download.cgi`
 Execute various file types through a cgi script ^
-For those special occasions where certain file types need to be processed with some specific cgi script, let em know who sent ya:
 
+For those special occasions where certain file types need to be processed with some specific cgi script, let em know who sent ya:
 # execute all png files via png-script.cgi
 `Action image/png /cgi-bin/png-script.cgi`
 Security ^
 Prevent Access to .htaccess ^
-Add the following code block to your .htaccess file to add an extra layer of security. Any attempts to access the .htaccess file will result in a 403 “Forbidden” response. Learn more.
 
+Add the following code block to your .htaccess file to add an extra layer of security. Any attempts to access the .htaccess file will result in a 403 “Forbidden” response. Learn more.
 # secure .htaccess file
 `<Files .htaccess>
 	Order allow,deny
