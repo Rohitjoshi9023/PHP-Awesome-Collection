@@ -9,7 +9,7 @@ Comments are essential to maintaining control over any involved portion of code.
 
 Further, due to the extremely volatile nature of .htaccess voodoo, it is wise to include only alphanumeric characters (and perhaps a few dashes and underscores) in any .htaccess comments. For more information, check out my tutorial commenting your .htaccess code.
 
-Important Notes for .htaccess Noobs ^
+# Important Notes for .htaccess Noobs ^
 As a configuration file, .htaccess is very powerful. Even the slightest syntax error (like a missing space) can result in severe server malfunction. Thus it is crucial to make backup copies of everything related to your site (including any original .htaccess files) before working with your Hypertext Access file(s). It is also important to check your entire website thoroughly after making any changes to your .htaccess file. If any errors or other problems are encountered, employ your backups immediately to restore original functionality.
 
 Also note that, on most machines, .htaccess files are hidden by default. For more information, check out my tutorial, Create .htaccess files on OS X and Windows.
@@ -26,22 +26,14 @@ Get this information in PDF format! Visit .htaccess Character Definitions for fr
 
 #
 The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.
-[F]
-Forbidden: instructs the server to return a 403 “Forbidden” response to the client.
-[L]
-Last rule: instructs the server to stop rewriting after the preceding directive is processed.
-[N]
-Next: instructs Apache to rerun the rewrite rule until all rewriting directives have been achieved.
-[G]
-Gone: instructs the server to deliver a 410 “Gone” response (indicating that the resource no longer exists.
-[P]
-Proxy: instructs server to handle requests by mod_proxy.
-[C]
-Chain: instructs server to chain the current rule with the previous rule.
-[R]
-Redirect: instructs Apache to issue a redirect, causing the client to request the new content.
-[NC]
-No Case: defines any associated argument as case-insensitive. That is, “NC” = “No Case”.
+**[F]Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.
+**[L]Last rule:** instructs the server to stop rewriting after the preceding directive is processed.
+**[N]Next:** instructs Apache to rerun the rewrite rule until all rewriting directives have been achieved.
+**[G]Gone:** instructs the server to deliver a 410 “Gone” response (indicating that the resource no longer exists.
+**[P]Proxy:** instructs server to handle requests by mod_proxy.
+**[C]Chain:** instructs server to chain the current rule with the previous rule.
+**[R]Redirect:** instructs Apache to issue a redirect, causing the client to request the new content.
+**[NC]No Case:** defines any associated argument as case-insensitive. That is, “NC” = “No Case”.
 [PT]
 Pass Through: instructs mod_rewrite to pass the rewritten URL back to Apache for further processing.
 [OR]
