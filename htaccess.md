@@ -23,22 +23,22 @@ Therefore, .htaccess files should only be used when the main server configuratio
 
 # Regex Character Definitions for .htaccess ^
 The # instructs the server to ignore the line. used for including comments. each line of comments requires it’s own #. when including comments, it is good practice to use only letters, numbers, dashes, and underscores. this practice will help eliminate/avoid potential server parsing errors.<br/>
-**[F]Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.<br/>
-**[L]Last rule:** instructs the server to stop rewriting after the preceding directive is processed.<br/>
-**[N]Next:** instructs Apache to rerun the rewrite rule until all rewriting directives have been achieved.<br/>
-**[G]Gone:** instructs the server to deliver a 410 “Gone” response (indicating that the resource no longer exists.<br/>
-**[P]Proxy:** instructs server to handle requests by mod_proxy.<br/>
-**[C]Chain:** instructs server to chain the current rule with the previous rule.<br/>
-**[R]Redirect:** instructs Apache to issue a redirect, causing the client to request the new content.<br/>
-**[NC]No Case:** defines any associated argument as case-insensitive. That is, “NC” = “No Case”.<br/>
-**[PT]Pass Through:** instructs mod_rewrite to pass the rewritten URL back to Apache for further processing.<br/>
-**[OR]Or:** specifies a logical “or” that ties two expressions together such that either one proving true will cause the associated rule to be applied.<br/>
-**[NE]No Escape:** instructs the server to parse output without escaping characters.<br/>
-**[NS]No Subrequest:** instructs the server to skip the directive if internal sub-request.<br/>
-**[QSA]Append Query String:** directs server to add the query string to the end of the expression (URL).<br/>
-**[S=x]Skip:** instructs the server to skip the next “x” number of rules if a match is detected.<br/>
-**[E=variable:value]Environmental Variable:** instructs the server to set the environmental variable “variable” to “value”.<br/>
-**[T=MIME-type]Mime Type:** declares the mime type of the target resource.<br/>
+**[F]**<br/>**Forbidden:** instructs the server to return a 403 “Forbidden” response to the client.<br/>
+**[L]**<br/>**Last rule:** instructs the server to stop rewriting after the preceding directive is processed.<br/>
+**[N**<br/>**]Next:** instructs Apache to rerun the rewrite rule until all rewriting directives have been achieved.<br/>
+**[G]**<br/>**Gone:** instructs the server to deliver a 410 “Gone” response (indicating that the resource no longer exists.<br/>
+**[P]**<br/>**Proxy:** instructs server to handle requests by mod_proxy.<br/>
+**[C]**<br/>**Chain:** instructs server to chain the current rule with the previous rule.<br/>
+**[R]**<br/>**Redirect:** instructs Apache to issue a redirect, causing the client to request the new content.<br/>
+**[NC]**<br/>**No Case:** defines any associated argument as case-insensitive. That is, “NC” = “No Case”.<br/>
+**[PT]**<br/>**Pass Through:** instructs mod_rewrite to pass the rewritten URL back to Apache for further processing.<br/>
+**[OR]**<br/>**Or:** specifies a logical “or” that ties two expressions together such that either one proving true will cause the associated rule to be applied.<br/>
+**[NE]**<br/>**No Escape:** instructs the server to parse output without escaping characters.<br/>
+**[NS]**<br/>**No Subrequest:** instructs the server to skip the directive if internal sub-request.<br/>
+**[QSA]**<br/>**Append Query String:** directs server to add the query string to the end of the expression (URL).<br/>
+**[S=x]**<br/>**Skip:** instructs the server to skip the next “x” number of rules if a match is detected.<br/>
+**[E=variable:value]**<br/>**Environmental Variable:** instructs the server to set the environmental variable “variable” to “value”.<br/>
+**[T=MIME-type]**<br/>**Mime Type:** declares the mime type of the target resource.<br/>
 **[]** Specifies a character class, in which any character within the brackets will be a match. For example, [xyz] will match either an “x”, “y”, or “z”.<br/>
 **[]+** Character class in which any combination of items within the brackets will be a match. For example, [xyz]+ will match any number of “x”, “y”, “z”, or any combination of these characters.<br/>
 **[^]** Specifies not within a character class. For example, [^xyz] will match any character that is neither “x”, “y”, nor “z”.<br/>
